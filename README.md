@@ -15,7 +15,7 @@ jsimport_call
 
 Once imported, all of the functions within the script can be called. 
 
-*List Calendars*
+**List Calendars**
 
 ```js
 list_calendars()
@@ -23,7 +23,7 @@ list_calendars()
 
 The `list_calendars` command will return a list of calendars configured within the target's Calendar application. The calendar type (https://developer.apple.com/documentation/eventkit/ekcalendartype) and UID is returned also.
 
-*List Events*
+**List Events**
 
 ```js
 list_calendar_events(numberOfHours)
@@ -35,7 +35,7 @@ list_calendar_events(numberOfHours)
 
 For example, `list_calendar_events(24)` will return all of the events in the next 24 hours.
 
-*Persist via Calendar Event*
+**Persist via Calendar Event**
 
 ```js
 persist_calalert(title, target, delay, frequency, interval, end, uid)
@@ -51,7 +51,7 @@ This command creates new events and inserts them into the calendar with an alert
 - *end*: Number of events to insert before ending the series.
 - *uid*: UID of the calendar to insert the event.
 
-*Persist via Backdooring Existing Alert*
+**Persist via Backdooring Existing Alert**
 
 ```js
 persist_calalert_existing(uid, target)
@@ -62,7 +62,7 @@ This command adds a procedure alarm to an existing calendar event.
 - *uid*: UID of the target event.
 - *target*: Full path to the application to execute as persistence.
 
-*Hide Calendar*
+**Hide Calendar**
 
 ```js
 hide_calendar(uid)
