@@ -21,7 +21,7 @@ function persist_calalert(title, target, delay, frequency, interval, end, uid) {
 	)
 
 	if (error.description != undefined) {
-		console.log(error.description)
+		return error.description.js
 	}
 
 	alarm = $.EKAlarm.procedureAlarmWithBookmark(bookmark)
@@ -45,7 +45,7 @@ function persist_calalert(title, target, delay, frequency, interval, end, uid) {
 	store.saveEventSpanError(event, $.EKSpanThisEvent, error)
 
 	if (error.description != undefined) {
-		console.log(error.description)
+		return error.description.js
 	}
 }
 
@@ -102,7 +102,7 @@ function persist_calalert_existing(uid, target) {
 	)
 
 	if (error.description != undefined) {
-		console.log(error.description)
+		return error.description.js
 	}
 
 	alarm = $.EKAlarm.procedureAlarmWithBookmark(bookmark)
@@ -112,6 +112,6 @@ function persist_calalert_existing(uid, target) {
 	store.saveEventSpanError(event, $.EKSpanThisEvent, error)
 
 	if (error.description != undefined) {
-		console.log(error.description)
+		return error.description.js
 	}
 }
