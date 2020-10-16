@@ -67,7 +67,12 @@ This command adds a procedure alarm to an existing calendar event.
 ```js
 hide_calendar(uid)
 ```
-
 This function "unchecks" the show calendar button within Calendar.app. Whilst it can be trivially re-enabled, this might help hide the created events in some situations.
 
 - *uid*: UID of the calendar to be hidden.
+
+## Contributors
+
+I wanted to take the time to thank those who have helped fix or add to this script, cheers!
+
+- Antman1p (https://github.com/antman1p)
