@@ -51,7 +51,7 @@ This command creates new events and inserts them into the calendar with an alert
 - *end*: Number of events to insert before ending the series.
 - *uid*: UID of the calendar to insert the event.
 
-**Persist via Backdooring Existing Alert**
+**Persist via Backdooring Existing Event**
 
 ```js
 persist_calalert_existing(uid, target)
