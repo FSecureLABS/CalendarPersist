@@ -10,6 +10,8 @@ function persist_calalert(title, target, delay, frequency, interval, end, uid) {
 	event.title = title
 	event.calendar = store.calendarWithIdentifier(uid)
 
+	path = target
+
 	target = $.NSURL.alloc.initWithString("file:///" + target)
 
 	error = $.NSError
@@ -26,14 +28,14 @@ function persist_calalert(title, target, delay, frequency, interval, end, uid) {
 
 	alarm = $.EKAlarm.procedureAlarmWithBookmark(bookmark)
 	event.addAlarm(alarm)
-	
+
 	recurFreqMap = {
 		"daily": $.EKRecurrenceFrequencyDaily,
 		"weekly": $.EKRecurrenceFrequencyWeekly,
 		"monthly": $.EKRecurrenceFrequencyMonthly,
 		"yearly": $.EKrecurrenceFrequencyYearly
 	}
-	
+
 	recur = $.EKRecurrenceRule.alloc.initRecurrenceWithFrequencyIntervalEnd(
 		recurFreqMap[frequency],
 		interval,
@@ -47,12 +49,23 @@ function persist_calalert(title, target, delay, frequency, interval, end, uid) {
 	if (error.description != undefined) {
 		return error.description.js
 	}
+
+	var output = ""
+	output += "Calendar Event Created: \n\tTitle: " + ObjC.unwrap(event.title) +
+	"\n\tCalendar: " + ObjC.unwrap(event.calendar.title) + "(" +
+	ObjC.unwrap(event.calendar.type) + ")" + " " + ObjC.unwrap(event.calendar.calendarIdentifier) +
+	"\n\tStart Date: " + ObjC.unwrap(event.startDate) +
+	"\n\tFrequency: " + frequency +
+	"\n\tInterval: " + interval +
+	"\n\tNumber of Events: " + end +
+	"\n\tApplication to be Executed: " + path
+	return output
 }
 
 function list_calendars() {
 	store = $.EKEventStore.alloc.initWithAccessToEntityTypes($.EKEntityMaskEvent)
 	eventCalendars = store.calendarsForEntityType($.EKEntityTypeEvent)
-	
+
 	var output = ""
 
 	for (var i = 0; i < eventCalendars.count; i++) {
@@ -60,7 +73,7 @@ function list_calendars() {
 		output += ObjC.unwrap(calendar.title) + "(" + ObjC.unwrap(calendar.type) + "): " + ObjC.unwrap(calendar.calendarIdentifier)
 		output += "\n"
 	}
-	
+
 	return output
 }
 
@@ -107,7 +120,7 @@ function persist_calalert_existing(uid, target) {
 
 	alarm = $.EKAlarm.procedureAlarmWithBookmark(bookmark)
 	event.addAlarm(alarm)
-	
+
 	error = $.NSError
 	store.saveEventSpanError(event, $.EKSpanThisEvent, error)
 
