@@ -73,6 +73,6 @@ This function "unchecks" the show calendar button within Calendar.app. Whilst it
 
 ## Contributors
 
-I wanted to take the time to thank those who have helped fix or add to this script, cheers!
+I want to take the time to thank those who have helped fix or add to this script, cheers!
 
 - Antman1p (https://github.com/antman1p)
